@@ -12,16 +12,16 @@ server.use(cors())
 
 server.listen(5000, () => console.log("sever is on!"))
 
-//USERS
-// getAllUsers 
-server.get('/users', (req: Request, res: Response) => {
-  res.status(200).json({data: users})
-})
+// Ping Pong teste para ver se a API está online
 
+server.get("/ping",(req:Request, res:Response)=>
+{
+  res.send("Pong!")
+})
 
 // USERS
 //createUser
-server.post("/users", (req: Request, res: Response) => {
+server.post("/users", (req:Request, res:Response) => {
 
   try {
 
@@ -39,11 +39,11 @@ server.post("/users", (req: Request, res: Response) => {
       name: name,
       email: email,
       password: password,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString()   // checar se o projeto mudou
     }
 
     users.push(newUser)
-    res.status(201).json({"data": "usuário criado com sucesso!"})
+    res.status(201).json({"data": "Cadastro realizado com sucesso"})
 
   } catch (error: any) {
     res.status(400).send(error.message)
@@ -52,9 +52,16 @@ server.post("/users", (req: Request, res: Response) => {
 
 })
 
+//USERS
+// getAllUsers 
+server.get('/users', (req:Request, res:Response) => {
+  res.status(200).json({data: users})
+})
+
+
 // PRODUCTS
 // createProduct
-server.post("/products", (req: Request, res: Response) => {
+server.post("/products", (req:Request, res:Response) => {
   try {
     const { name, price, description, imageUrl } = req.body
     if (name == undefined) throw new Error("o nome do produto precisa ser informado!")
@@ -85,14 +92,11 @@ server.get("/products",(req:Request, res:Response)=>{
   res.status(200).json({"data": products })
 })
 
+
 // PRODUCT 
 // getAllProducts  = funcionalidade 2
 server.get("/products/search",(req:Request, res:Response)=>{
-  const q = req.query.q  as string  // forçando a tipagem
-  
-  const result = products.filter((product)=> product.name.toLowerCase().includes(q.toLowerCase()))
-
-  res.status(200).send(result)
-
-  
+  const query = req.query.q  as string  // forçando a tipagem
+  const result = products.filter((product)=> product.name.toLowerCase().includes(query.toLowerCase()))
+  res.status(200).json({"data":result})
 })

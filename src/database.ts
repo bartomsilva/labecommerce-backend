@@ -35,20 +35,4 @@ export const products: Product[] = [
 ]
 
 
-export const createUser = (id: string, name: string, email: string, password: string): void => {
 
-  const newUser: User =
-  {
-    id: id,
-    name: name,
-    email: email,
-    password: password,
-    createdAt: new Date().toISOString()
-  }
-  users.push(newUser)
-
-}
-
-export const getAllUsers = (): User[] => {
-  return users
-}
