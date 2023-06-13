@@ -1,0 +1,14 @@
+### Edit Product By Id
+PUT http://127.0.0.1:5000/products/51
+content-type: application/json
+
+{
+  "id": "51",
+  "name": "Mouse gamer hyh",
+  "price": 150,
+  "description": "Melhor mouse do mercado ",
+  "imageUrl": "https://picsum.photos/seed/Mouse%20gamer/400"
+}
+
+### gelAllProducts
+GET  http://127.0.0.1:5000/products
