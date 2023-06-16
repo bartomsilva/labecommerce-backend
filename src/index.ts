@@ -4,7 +4,7 @@ import cors from 'cors'
 
 import { users, products } from "./database";
 import { User, Product } from './types'
-import { findEmail, findId } from "./roles/rooles";
+import { findEmail, findId, handlerError } from "./roles/rooles";
 
 
 const server = express()
@@ -22,22 +22,13 @@ server.get("/", (req: Request, res: Response) => {
   res.send("api labecommerce-backend online!")
 })
 
-
-
 // ## USERS
 // getAllUsers 
 server.get('/users', (req: Request, res: Response) => {
   try {
     res.status(200).send(users)
   } catch (error) {
-    if (res.statusCode === 200) {
-      res.status(500)
-    }
-    if (error instanceof Error) {
-      res.send(error.message)
-    } else {
-      res.send("Erro inesperado.")
-    }
+    handlerError(res,error)
   }
 })
 
@@ -66,6 +57,7 @@ server.post("/users", (req: Request, res: Response) => {
       throw new Error("O email é obrigatório e precisa ser do tipo string.")
     }
 
+    //"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"
     if (!email.match(/^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$/i)) {
       res.statusCode = 400
       throw new Error("O email inválido.")
@@ -97,21 +89,14 @@ server.post("/users", (req: Request, res: Response) => {
       name: name,
       email: email,
       password: password,
-      createdAt: new Date().toISOString()   // checar se o projeto mudou
+      createdAt: new Date().toISOString()   
     }
 
     users.push(newUser)
     res.status(201).send("Cadastro realizado com sucesso.")
 
   } catch (error) {
-    if (res.statusCode === 200) {
-      res.status(500)
-    }
-    if (error instanceof Error) {
-      res.send(error.message)
-    } else {
-      res.send("Erro inesperado.")
-    }
+    handlerError(res,error)
   }
 
 })
@@ -133,14 +118,7 @@ server.delete('/users/:id', (req: Request, res: Response) => {
     })
     res.status(200).send("User apagado com sucesso.")
   } catch (error) {
-    if (res.statusCode === 200) {
-      res.status(500)
-    }
-    if (error instanceof Error) {
-      res.send(error.message)
-    } else {
-      res.send("Erro inesperado.")
-    }
+    handlerError(res,error)
   }
 
 })
@@ -192,14 +170,7 @@ server.post("/products", (req: Request, res: Response) => {
     res.status(201).send("Produto cadastrado com sucesso.")
 
   } catch (error) {
-    if (res.statusCode === 200) {
-      res.status(500)
-    }
-    if (error instanceof Error) {
-      res.send(error.message)
-    } else {
-      res.send("Erro inesperado")
-    }
+    handlerError(res,error)
   }
 })
 
@@ -220,14 +191,7 @@ server.delete('/products/:id', (req: Request, res: Response) => {
     res.status(200).send("Produto apagado com sucesso.")
 
   } catch (error) {
-    if (res.statusCode === 200) {
-      res.status(500)
-    }
-    if (error instanceof Error) {
-      res.send(error.message)
-    } else {
-      res.send("Erro inesperado")
-    }
+    handlerError(res,error)
   }
 
 
@@ -237,12 +201,13 @@ server.delete('/products/:id', (req: Request, res: Response) => {
 server.get("/products", (req: Request, res: Response) => {
   try {
 
-    const query = req.query.name as string  // forçando a tipagem
+    const query = req.query.name as string  
+
     let result: Product[]
 
     if (query == undefined) {
       result = products
-    } else if (query.length > 0) {
+    } else if (typeof query ==="string" && query.length > 0) {
       result = products.filter((product) => product.name.toLowerCase().includes(query.toLowerCase()))
     } else {
       res.statusCode = 400
@@ -251,21 +216,10 @@ server.get("/products", (req: Request, res: Response) => {
     res.status(200).send(result)
 
   } catch (error) {
-    if (res.statusCode === 200) {
-      res.status(500)
-    }
-    if (error instanceof Error) {
-      res.send(error.message)
-    } else {
-      res.send("Erro inesperado")
-    }
+    handlerError(res,error)
   }
 
 
-})
-
-server.put('/products', (req: Request, res: Response) => {
-  res.send("como resolver isso!, é preciso informar o id do produto que deseja alterar.")
 })
 
 server.put('/products/:id', (req: Request, res: Response) => {
@@ -305,21 +259,15 @@ server.put('/products/:id', (req: Request, res: Response) => {
       res.statusCode = 400
       throw new Error("não é possivel atualizar, o id informado já está cadastrado.")
     }
+    
     produtctUpdate.id = newId || produtctUpdate.id
     produtctUpdate.name = newName || produtctUpdate.name
-    produtctUpdate.price = newPrice || produtctUpdate.price
+    produtctUpdate.price = newPrice>=0 ? newPrice : produtctUpdate.price
     produtctUpdate.imageUrl = newImageUrl || produtctUpdate.imageUrl
     res.status(200).send("Produto atualizado com sucesso.")
 
   } catch (error) {
-    if (res.statusCode === 200) {
-      res.status(500)
-    }
-    if (error instanceof Error) {
-      res.send(error.message)
-    } else {
-      res.send("Erro inesperado")
-    }
+    handlerError(res,error)
   }
 
 })
