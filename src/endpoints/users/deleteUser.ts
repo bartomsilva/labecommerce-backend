@@ -9,7 +9,7 @@ export function deleteUser(req: Request, res: Response){
 
     if (!findId(users, id)) {
       res.statusCode = 404
-      throw new Error("esse id não existe.")
+      throw new Error("'id' not found.")
     }
 
     const userSelect = users.findIndex((element, index) => {
@@ -18,7 +18,7 @@ export function deleteUser(req: Request, res: Response){
       }
     })
 
-    res.status(200).send("User apagado com sucesso.")
+    res.status(200).send("'User' successfully deleted .")
 
   } catch (error) {
     handlerError(res,error)
