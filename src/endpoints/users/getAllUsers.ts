@@ -1,11 +1,12 @@
 import { Request, Response } from "express";
-import { users } from "../../database/database";
 import { handlerError } from "../../roles/rooles";
+import { db } from '../../database/knex'
 
-export function getAllUsers(req:Request, res:Response){
+export async function getAllUsers(req:Request, res:Response){
 
   try {
-    res.status(200).send(users)
+    const result = await db("users").select("id","name","email","created_at AS createdAt")
+    res.status(200).send(result)
   } catch (error) {
     handlerError(res,error)
   }

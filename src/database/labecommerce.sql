@@ -11,10 +11,10 @@ DROP TABLE users;
 
 INSERT INTO users (id, name, email, password, created_at)
 VALUES 
-("001","Anonimo", "anonimo@gmail.com","123456@aZ","2023-06-12"),
-("002","Ciclano", "ciclano@gmail.com","123456@cZ","2023-06-12"),
-("003","Beltana", "beltrana@gmail.com","123456@bZ","2023-06-12"),
-("004","Anônima", "anonima@gmail.com","123456@aN","2023-06-20");
+("001","Anonimo", "anonimo@gmail.com","123456@aZ",DATE('now')),
+("002","Ciclano", "ciclano@gmail.com","123456@cZ",DATE('now')),
+("003","Beltana", "beltrana@gmail.com","123456@bZ",DATE('now')),
+("004","Anônima", "anonima@gmail.com","123456@aN",DATE('now'));
 
 SELECT * FROM users;
 
