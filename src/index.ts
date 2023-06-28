@@ -9,7 +9,6 @@ import { getAllProducts } from "./endpoints/products/getAllProducts";
 import { editProduct } from "./endpoints/products/editProduct";
 import { deleteProduct } from "./endpoints/products/deleteProduct";
 
-
 const server = express()
 
 server.use(express.json())
