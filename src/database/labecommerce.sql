@@ -38,3 +38,36 @@ VALUES
 
 SELECT * FROM products;
 
+-- Criação da Tabela de Pedidos
+-- Create table purchases
+
+
+-- Criação da tabela de pedidos
+-- create table purchases
+
+CREATE TABLE purchases(
+  id TEXT PRIMARY KEY NOT NULL,
+  buyer TEXT NOT NULL,
+  total_price REAL NOT NULL,
+  created_at TEXT NOT NULL,
+  FOREIGN KEY (buyer) REFERENCES users(id)
+);
+
+INSERT INTO purchases ( id, buyer, total_price, created_at)
+VALUES ("10001","001",1200, Date()),
+       ("10002","002",800.25, Date()),
+       ("10003","004",9800.00, Date());
+
+SELECT 
+  purchases.id,
+  purchases.buyer,
+  users.name as CustomerName,
+  users.email,
+  purchases.total_price AS TotalPrice,
+  purchases.created_at As Date
+  FROM purchases
+  INNER JOIN users ON buyer = users.id;
+
+ UPDATE purchases
+ SET total_price = 1254.32
+ WHERE id = "10001";
