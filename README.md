@@ -9,15 +9,17 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 - <a href="#layout">Layout</a>
 - <a href="#requests">Requisições</a>
 - <a href="#link">Visualizar este projeto</a>
+- <a href="#example">Exemplo de Requisições</a>
 - <a href="#comorodar">Como rodar este projeto</a>
-- <a href="#requisitos">Requisitos do projeto</a>
 - <a href="#tecnologias">Tecnologias Utilizadas</a>
 - <a href="#author">Pessoas autoras</a>
 - <a href="#next">Próximos Passos</a>
+<hr/>
 
-## Layout: 
 <span id="layout"></span>
 <a href="#indice">início</a>
+
+## Layout: 
 ### vscode
 ![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/1e595cc6-5811-4f44-90ed-f9a41ce3971a)
 ### Tabelas: 
@@ -43,8 +45,16 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 ### Requisições de Compras
 - /purchases
 
+<hr/>
+<span id="link"></span>
+<a href="#indice">início</a>
+
 ### Documentação no Postman:  
 ---- link
+
+<hr/>
+<span id="example"></span>
+<a href="#indice">início</a>
 
 ## Exemplos de requisição
 ## Get all users
@@ -110,9 +120,10 @@ Deleta um pedido existente.
 Retorna os dados de uma compra, incluindo a lista de produtos da mesma.
 #### Exemplo
 ![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/fc0e5e03-97da-442d-bfec-f5b3b0edee50)
-
+<hr/>
 <span id='comorodar'></span>
 <a href="#indice">início</a>
+
 ## 📄 Como rodar este projeto
 
 <p>Caso queira baixar e instalar este projeto em seu computador, é necessário que tenha o git e o node instalados.</p>
@@ -141,49 +152,39 @@ ou
 yarn install
 
 # Executando o Projeto
-nmp run dev
+npm run dev
 ou 
 yarn dev
 
 ```
 
 <hr/>
-
-<span id='requisitos'></span>
+<span id='reqextra'></span>
 <a href="#indice">início</a>
-## Requisitos do Projeto 
-
-### **Requisitos**
-
-
 
 ### Endpoins adicionais
 ```
 ```
 <hr/>
-
-## Tecnologias 
-colocar as imagens
-
-- NodeJS
-- Typescript
-- Express
-- SQL
-- SQLite
-- Knex
-- Postman
-
-<hr/>
-
 <span id="tecnologias"></span>
 <a href="#indice">início</a>
+
 ## 💻 Tecnologias
+<div align="center">
 
-![Git](https://user-images.githubusercontent.com/106079184/227621865-d6fd9ff4-2e10-4f7f-9759-f31c6434b565.png)
-
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/2ecbb441-e22d-4be2-b67b-5fff6f606583" higth="40px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/365c791b-268b-45f5-9268-9b1bad354a57" higth="40px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/0e5d0c6e-bae0-43c9-b641-2d375361c29a" higth="40px"/><br>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/a6ce0cb3-39d8-4d48-af03-9b1ff68a2809" higth="40px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/932a21bf-bd42-4b0c-87f8-8941d86f56f7" higth="40px"/><br>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/bb5f2801-cf54-40da-ab18-1878173a177b" higth="40px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/1d7fa95f-2f7c-4701-945a-8ad0412c236d" higth="40px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/cf9e6e98-36f5-4447-be7a-c6d00426b477" higth="40px"/>
+</div>
 <hr/>
 <span id="author"></span>
 <a href="#indice">início</a>
+
 ## 📫 Pessoas autoras
 
 <img style="width: 200px; border-radius: 50% 0 " src="https://avatars.githubusercontent.com/u/106079184?s=400&u=753f5466a77193fe7077e495475b242787de0435&v=4" alt="imagem do autor">
@@ -193,6 +194,7 @@ linkedin: https://www.linkedin.com/in/bart-silva-br/
 
 <span id='next'></span>
 <a href="#indice">início</a>
+
 ## Próximos passos
 - Refazer todos projetos utilizando POO. 
 
