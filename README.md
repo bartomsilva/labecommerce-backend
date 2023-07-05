@@ -124,7 +124,7 @@ git clone (cole a url aqui)
 
 # acesse a página criada 
 
-cd Pokedex
+cd labecommerce-backend
 
 # Instale as dependências
 npm install
