@@ -104,6 +104,54 @@ Retorna os dados de uma compra, incluindo a lista de produtos da mesma.
 #### Exemplo
 
 
+## 📄 Como rodar este projeto
+
+<p>Caso queira baixar e instalar este projeto em seu computador, é necessário que tenha o git e o node instalados.</p>
+
+### Links:  <a href="https://nodejs.org/en">Node</a> - <a href="https://git-scm.com/">Git</a>
+
+<p>Se já tem ambos instalados ou após instalar, siga os passos abaixo:</p>
+
+```bash
+
+# Copie o link a baixo
+
+https://github.com/bartomsilva/labecommerce-backend.git
+
+# Abra um terminal e digite o seguinte comando
+
+git clone (cole a url aqui)
+
+# acesse a página criada 
+
+cd Pokedex
+
+# Instale as dependências
+npm install
+ou
+yarn install
+
+# Executando o Projeto
+nmp run dev
+ou 
+yarn dev
+
+```
+
+<hr/>
+
+<span id='requisitos'></span>
+
+## Requisitos do Projeto 
+
+### **Requisitos**
+
+
+
+### Endpoins adicionais
+```
+```
+<hr/>
 
 ## Tecnologias 
 colocar as imagens
@@ -115,6 +163,29 @@ colocar as imagens
 - SQLite
 - Knex
 - Postman
+
+<hr/>
+
+<span id="tecnologias"></span>
+## 💻 Tecnologias
+
+![Git](https://user-images.githubusercontent.com/106079184/227621865-d6fd9ff4-2e10-4f7f-9759-f31c6434b565.png)
+
+<hr/>
+<span id="author"></span>
+
+## 📫 Pessoas autoras
+
+<img style="width: 200px; border-radius: 50% 0 " src="https://avatars.githubusercontent.com/u/106079184?s=400&u=753f5466a77193fe7077e495475b242787de0435&v=4" alt="imagem do autor">
+<p>Bartolomeu Mariano ( Bart Silva )</p>
+
+linkedin: https://www.linkedin.com/in/bart-silva-br/
+
+<span id='next'></span>
+## Próximos passos
+- Refazer o endpoint create purchase para que receba o preço dos produtos 
+
+
 
 
 
