@@ -3,7 +3,7 @@
 # labecommerce
 Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de uma API vinculada a um banco de dados real.<br><br>
 <br>
-
+<span id='indice'></span>
 ## Índice
 
 - <a href="#funcionalidades">Funcionalidades do Projeto</a>
@@ -17,6 +17,7 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 
 ## Tabelas existentes no projeto e suas relações entre si: 
 ![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/acefbe29-1413-480e-9480-20b23d72f4aa)
+
 
 ## Caminhos das Requisições (Paths) 🛣🛣
 ### Requisições de Usuários
@@ -105,6 +106,7 @@ Retorna os dados de uma compra, incluindo a lista de produtos da mesma.
 ![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/fc0e5e03-97da-442d-bfec-f5b3b0edee50)
 
 <span id='comorodar'></span>
+<a href="#indice">início</a>
 ## 📄 Como rodar este projeto
 
 <p>Caso queira baixar e instalar este projeto em seu computador, é necessário que tenha o git e o node instalados.</p>
