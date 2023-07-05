@@ -102,8 +102,9 @@ Deleta um pedido existente.
 ## Get purchase by id
 Retorna os dados de uma compra, incluindo a lista de produtos da mesma.
 #### Exemplo
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/fc0e5e03-97da-442d-bfec-f5b3b0edee50)
 
-
+<span id='comorodar'></span>
 ## 📄 Como rodar este projeto
 
 <p>Caso queira baixar e instalar este projeto em seu computador, é necessário que tenha o git e o node instalados.</p>
