@@ -1,26 +1,23 @@
 import { Request, Response } from "express";
-import { users } from "../../database/database";
-import { findId, handlerError } from "../../roles/rooles";
+import { db } from '../../database/knex'
+import { handlerError } from "../handlerError";
 
-export function deleteUser(req: Request, res: Response){
+export async function deleteUser(req: Request, res: Response){
   try {
     
-    const id = req.params.id
-
-    if (!findId(users, id)) {
-      res.statusCode = 404
-      throw new Error("'id' not found.")
+    const idDelete = req.params.id
+    
+    const [ result ] = await db("users").where({ id: idDelete })
+    if (!result){
+        res.statusCode = 404
+        throw new Error("'id' not found.")
     }
+      
+    await db("users").del().where({ id: idDelete })
+    //res.status(200).send("'User' successfully deleted .")
+    res.status(201).send({message: "Usuário deletado com sucesso"})
 
-    const userSelect = users.findIndex((element, index) => {
-      if (element.id === id) {
-        users.splice(index, 1)
-      }
-    })
-
-    res.status(200).send("'User' successfully deleted .")
-
-  } catch (error) {
+  } catch (error:unknown) {
     handlerError(res,error)
   }
 }

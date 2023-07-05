@@ -4,6 +4,7 @@
       "module": "commonjs", 
       "sourceMap": true,    
       "outDir": "./build",  
+      "strict":true,
       "rootDir": "./src",        
       "removeComments": true,    
       "noImplicitAny": true,     

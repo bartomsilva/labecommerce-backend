@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { users } from "../../database/database";
-import { findEmail, findId, handlerError } from "../../roles/rooles";
 import { User } from "../../interfaces";
+import { db } from '../../database/knex'
+import { handlerError } from "../handlerError";
 
-export function createUser(req: Request, res: Response) {
+export async function createUser(req: Request, res: Response) {
 
   try {
 
-    const { id, name, email, password } = req.body
+    const { id, name, email, password, createdAt } = req.body
 
     if (id == undefined) {
       res.statusCode = 400
@@ -55,29 +55,27 @@ export function createUser(req: Request, res: Response) {
       one number and one special character.`)
     }
 
-    if (findId(users, id)) {
-      res.statusCode = 400
-      throw new Error("'id' already registered.")
-    }
-
-    if (findEmail(users, email)) {
-      res.statusCode = 400
-      throw new Error("'email' already registered.")
+    const [ result ] = await db("users").where({ id: id }).orWhere({email: email})
+    if (result){
+        res.statusCode = 400
+        throw new Error("'id or email' already registered.")
     }
 
     const newUser: User =
     {
-      id: id,
-      name: name,
-      email: email,
-      password: password,
-      createdAt: new Date().toISOString()   // checar se o projeto mudou
+      "id": id,
+      "name": name,
+      "email": email,
+      "password": password,
+      "created_at": new Date().toISOString().slice(0, 19).replace('T', ' ')
     }
 
-    users.push(newUser)
-    res.status(201).send("Registration done successfully.")
+    // salvanso do banco de dados
+    await db("users").insert(newUser);
 
-  } catch (error) {
+    res.status(201).send({message: "Cadastro realizado com sucesso"})
+
+  } catch (error:unknown) {
     handlerError(res, error)
   }
 

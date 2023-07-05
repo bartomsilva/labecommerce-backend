@@ -63,7 +63,8 @@ VALUES ("101","001",204, DATETIME('now', 'localtime')),
 SELECT 
   purchases.id,
   purchases.buyer,
-  users.name as CustomerName,
+  users.id AS idUser
+  users.name as userName,
   users.email,
   purchases.total_price AS TotalPrice,
   purchases.created_at As Date
@@ -93,13 +94,13 @@ VALUES  ("101","001",2),
         ("103","005",1);
 
 SELECT 
-  purchases.id AS Purchase,
-  purchases.created_at AS CreatedAt,
+  purchases.id AS purchaseId,
   purchases.buyer,
-  users.name AS NameCustomer,
   purchases.total_price AS TotalPrice,
-  purchases_products.product_id AS ProductId,
-  products.name AS ProductName,
+  purchases.created_at AS createdAt,
+  users.name AS nameUser,
+  purchases_products.product_id AS productId,
+  products.name AS productName,
   purchases_products.quantity
   from purchases_products
   INNER JOIN purchases ON purchases.id = purchases_products.purchase_id

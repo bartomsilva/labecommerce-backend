@@ -1,27 +1,27 @@
 import { Request, Response } from "express";
-import { products } from "../../database/database";
-import { handlerError } from "../../roles/rooles";
-import { Product } from "../../interfaces";
+import { db } from "../../database/knex"
+import { handlerError } from "../handlerError";
 
-export function getAllProducts(req: Request, res: Response){
+
+export async function getAllProducts(req: Request, res: Response){
   try {
 
-    const query = req.query.name as string  
+    const query = req.query.name as string 
+    
+    let result 
 
-    let result: Product[]
-
-    if (query == undefined) {
-      result = products
-    } else if (query.length > 0) {
-      result = products.filter((product) => product.name.toLowerCase().includes(query.toLowerCase()))
+    if(query){
+      result = await db("products")
+      .select("id","name","price","description","image_url AS imageUrl")
+      .where("name", "LIKE", `%${query}%` )
     } else {
-      res.statusCode = 400
-      throw new Error("para realizar a pesquisa precisa informar ao menos um caracter.")
+      result = await db("products")
+      .select("id","name","price","description","image_url AS imageUrl")
     }
 
     res.status(200).send(result)
 
-  } catch (error) {
+  } catch (error:unknown) {
     handlerError(res,error)
   }
 }
