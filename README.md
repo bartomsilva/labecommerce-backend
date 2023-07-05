@@ -6,8 +6,8 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 <span id='indice'></span>
 ## Índice
 
-- <a href="#funcionalidades">Funcionalidades do Projeto</a>
 - <a href="#layout">Layout</a>
+- <a href="#requests">Requisições</a>
 - <a href="#link">Visualizar este projeto</a>
 - <a href="#comorodar">Como rodar este projeto</a>
 - <a href="#requisitos">Requisitos do projeto</a>
@@ -15,18 +15,13 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 - <a href="#author">Pessoas autoras</a>
 - <a href="#next">Próximos Passos</a>
 
-## Tabelas existentes no projeto e suas relações entre si: 
+## Layout: 
+<span id="layout"></span>
+<a href="#indice">início</a>
+### vscode
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/1e595cc6-5811-4f44-90ed-f9a41ce3971a)
+### Tabelas: 
 ![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/acefbe29-1413-480e-9480-20b23d72f4aa)
-
-
-## Caminhos das Requisições (Paths) 🛣🛣
-### Requisições de Usuários
-- /users
-### Requisições de Produtos
-- /products
-### Requisições de Compras
-- /purchases
-
 ### Endpoints implementados :
 - [X]  Get all users 
 - [X]  Create user
@@ -36,6 +31,17 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 - [X]  Create purchase
 - [X]  Delete purchase by id
 - [X]  Get purchase by id
+<hr/>
+<span id="requests"></span>
+<a href="#indice">início</a>
+
+## Requisições (Paths) 🛣🛣
+### Requisições de Usuários
+- /users
+### Requisições de Produtos
+- /products
+### Requisições de Compras
+- /purchases
 
 ### Documentação no Postman:  
 ---- link
@@ -144,7 +150,7 @@ yarn dev
 <hr/>
 
 <span id='requisitos'></span>
-
+<a href="#indice">início</a>
 ## Requisitos do Projeto 
 
 ### **Requisitos**
@@ -170,13 +176,14 @@ colocar as imagens
 <hr/>
 
 <span id="tecnologias"></span>
+<a href="#indice">início</a>
 ## 💻 Tecnologias
 
 ![Git](https://user-images.githubusercontent.com/106079184/227621865-d6fd9ff4-2e10-4f7f-9759-f31c6434b565.png)
 
 <hr/>
 <span id="author"></span>
-
+<a href="#indice">início</a>
 ## 📫 Pessoas autoras
 
 <img style="width: 200px; border-radius: 50% 0 " src="https://avatars.githubusercontent.com/u/106079184?s=400&u=753f5466a77193fe7077e495475b242787de0435&v=4" alt="imagem do autor">
@@ -185,8 +192,9 @@ colocar as imagens
 linkedin: https://www.linkedin.com/in/bart-silva-br/
 
 <span id='next'></span>
+<a href="#indice">início</a>
 ## Próximos passos
-- Refazer o endpoint create purchase para que receba o preço dos produtos 
+- Refazer todos projetos utilizando POO. 
 
 
 
