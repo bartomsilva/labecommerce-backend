@@ -70,7 +70,7 @@ Retorna todos os produtos cadastrados, mas se for enviado um query params (name)
 retorna os produtos que contenham o _"name"_ informado no seu nome.
 #### Exemplo
 ![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/4211fe4d-07fc-4b28-9cbc-c970644fd398)
-|![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/1001434b-3454-4343-9212-659d3e1d358e)
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/4f2a7e7b-9b72-4aff-a1b4-79d7706b5f57)
 
 ## Edit product by id
 Edita um produto existente.
