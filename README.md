@@ -1,376 +1,120 @@
-# Projeto labecommerce
+( readme em construção )
 
-É o primeiro projeto do back-end, onde praticamos toda a base de criação de uma API vinculada a um banco de dados real.<br><br>
-Ele tem uma particularidade: seus requisitos são implementados ao longo dos exercícios pós aula. Isso significa que caso você siga o desenvolvimento das aulas, quando chegar na data de entrega já terá um projeto funcional e quase pronto para entrega.
-<br>
-### Conteúdos abordados
-- NodeJS
-- Typescript
-- Express
-- SQL e SQLite
-- Knex
-- Postman
-
-# ⚠⚠⚠ Importante!!! ⚠⚠⚠
-Para critérios de correção serão considerados rigorosamente a nomenclatura de: Tabelas, colunas e caminhos(path) das requisições. Portando, siga o padrão de nomenclaturas apresentado logo abaixo.
-
-## Banco de dados 🎲🎲
-O nome das tabelas e das colunas devem ser em letras minúsculas, sem acento, sem caracteres especiais e em _snake_case_(caso sejas palavras compostas. exp.: arco_iris). Por isso, siga restritamente a nomeclatura proposta!
-
-O banco de dados deve conter obrigatóriamente quatro tabelas:
-
-## Tabela de Usuários: 
-### Nome da Tabela:
-- users
-### Nome das colunas
-- id
-- name
-- email
-- password
-- created_at
-
-## Tabela de Produtos 🛒🛒
-### Nome da Tabela:
-- products
-### Nome das colunas
-- id 
-- name
-- price
-- description
-- image_url
-
-### Tabela de Registro de Compras 💸💸
-
-### Nome da Tabela:
-- purchases
-### Nome das colunas
-- id 
-- buyer
-- total_price
-- created_at
-
-## Tabela de Registro de Produtos Comprados 🧾🧾
-### Nome da Tabela:
-purchases_products
-### Nome das colunas
-- purchase_id
-- product_id
-- quantity
---------------------------
+# labecommerce
+Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de uma API vinculada a um banco de dados real.<br><br>
 <br>
 
-#### Para realizar a modelagem do seu banco de dados e das tabelas, considere a imagem a baixo. 
+## Índice
 
-Nela são mostradas as relações entre as tabelas :
+- <a href="#funcionalidades">Funcionalidades do Projeto</a>
+- <a href="#layout">Layout</a>
+- <a href="#link">Visualizar este projeto</a>
+- <a href="#comorodar">Como rodar este projeto</a>
+- <a href="#requisitos">Requisitos do projeto</a>
+- <a href="#tecnologias">Tecnologias Utilizadas</a>
+- <a href="#author">Pessoas autoras</a>
+- <a href="#next">Próximos Passos</a>
 
-![image](https://github.com/labenuexercicios/projeto-labecommerce/assets/29845719/b446bbb0-bc9c-42d9-be04-b9ce1d605bd4)
-https://dbdiagram.io/d/63c6e8e5296d97641d7a4666
-
-<br>
----------------
+## Tabelas existentes no projeto e suas relações entre si: 
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/acefbe29-1413-480e-9480-20b23d72f4aa)
 
 ## Caminhos das Requisições (Paths) 🛣🛣
-Os caminhos devem ser definidos em letras minúsculas, sem acento e sem caracteres especiais. Siga conforme o modelo de documentação proposto.
-
 ### Requisições de Usuários
 - /users
 ### Requisições de Produtos
 - /products
 ### Requisições de Compras
 - /purchases
----------------
-# Lista de requisitos - Obrigatórios
 
-### 1. Estruturar os dados como planejado
-O banco de dados deve possuir as tabelas e colunas conforme o diagrama.
-- é um simulado de requerimentos em um projeto real e erros de implementação nesse nível deixarão o projeto inválido.
+### Endpoints implementados :
+- [X]  Get all users 
+- [X]  Create user
+- [X]  Create product
+- [X]  Get all products funcionalidades 1 e 2
+- [X]  Edit product by id
+- [X]  Create purchase
+- [X]  Delete purchase by id
+- [X]  Get purchase by id
 
-As requisições também devem respeitar o que é esperado, você pode confirmar as estruturas vendo os exemplos de cada endpoint.
-- garanta que tanto o body, quanto a resposta e seu status estejam de acordo com o que foi planejado
+### Documentação no Postman:  
+---- link
 
-### 2. Implementar os Endpoints :
-
-    - [ ]  Get all users
-    - [ ]  Create user
-    - [ ]  Create product
-    - [ ]  Get all products funcionalidades 1 e 2
-    - [ ]  Edit product by id
-    - [ ]  Create purchase
-    - [ ]  Delete purchase by id
-    - [ ]  Get purchase by id
-
-### 3. Documentação no Postman de todos os endpoints (obrigatória para correção), descrevendo os endpoints e colocando os exemplos de respostas 
-
-### 4. Criar o arquivo  README.md , explicando seu projeto com prints das respostas
-
-Aqui está uma Documentação para referência (como deve ficar)
-https://documenter.getpostman.com/view/21151478/2s8ZDeSdbz
-
--------------------
-
-# Exemplos de requisição
-
-**Não precisa cadastrar o mesmo nome, email e quaisquer outros valores vistos aqui nos exemplos de saída. Porém, deve-se respeitar rigorosamente a estrutura pedida no banco de dados (nome das tabelas e colunas), nomes das propriedades do corpo e da resposta da API, além do caminho dos endpoints**
-
--------------------
-
+## Exemplos de requisição
 ## Get all users
 Retorna todas as pessoas cadastradas.<br>
-Dica: atenção com o nome da propriedade createdAt! Ela deve vir em camelCase, apesar de estar em snake_case no banco de dados.
-```typescript
-// Request
-// GET /users
+#### Exemplo
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/61a82c61-5c57-4a54-af58-a7b69cf679d7)
 
-// Response
-// status 200 OK
-[
-    {
-        id: "u001",
-        name: "Fulano",
-        email: "fulano@email.com",
-        password: "fulano123",
-        createdAt: "2023-01-15 09:12:42"
-    },
-    {
-        id: "u002",
-        name: "Ciclana",
-        email: "ciclana@email.com",
-        password: "ciclana99",
-        createdAt: "2023-01-17 12:35:28"
-    }
-]
-```
-
-<br>
-
--------------------------
 ## Create user
-Cadastra uma nova pessoa.
-```typescript
-// Request
-// POST /users
-// body JSON
-{
-    "id": "u003",
-    "name": "Astrodev",
-    "email": "astrodev@email.com",
-    "password": "astrodev00"
-}
-
-// Response
-// status 201 CREATED
-{
-    message: "Cadastro realizado com sucesso"
-}
-```
----------------
-<br>
+Cadastra uma nova pessoa.<br>
+#### Validações
+- [X] ausência de informações.
+- [X] tipos de dados diferentes dos esperados.
+- [X] verificação de ID já castrado.
+- [X] verificação de email já castrado.<br>
+#### Exemplo
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/c59d4f6b-52d1-4bad-b63d-10a6fbc66590)
 
 ## Create product
-Cadastra um novo produto.
-```typescript
-// Request
-// POST /products
-// body JSON
-{
-    "id": "prod003",
-    "name": "Teclado gamer",
-    "price": 200,
-    "description": "Teclado mecânico com numpad",
-    "imageUrl": "https://picsum.photos/seed/Teclado%20gamer/400"
-}
+Cadastra um novo produto.<br>
+#### Validações
+- [x] ausência de informações.
+- [X] tipos de dados diferentes dos esperados.
+- [X] valor do produto válido (deve ser maior que zero). 
+- [X] verificação de ID já castrado.<br>
+#### Exemplo
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/839d0e3e-202e-452e-b653-15ce6cdf9ef3)
 
-// Response
-// status 201 CREATED
-{
-    message: "Produto cadastrado com sucesso"
-}
-```
-
----------------------
-<br>
-
-## Get all products funcionalidade 1
-Retorna todos os produtos cadastrados.
-```typescript
-// Request
-// GET /products
-
-// Response
-// status 200 OK
-[
-    {
-        id: "prod001",
-        name: "Mouse gamer",
-        price: 250,
-        description: "Melhor mouse do mercado!",
-        imageUrl: "https://picsum.photos/seed/Mouse%20gamer/400"
-    },
-    {
-        id: "prod002",
-        name: "Monitor",
-        price: 900,
-        description: "Monitor LED Full HD 24 polegadas",
-        imageUrl: "https://picsum.photos/seed/Monitor/400"
-    },
-    {
-        id: "prod003",
-        name: "Teclado gamer",
-        price: 200,
-        description: "Teclado mecânico com numpad",
-        imageUrl: "https://picsum.photos/seed/Teclado%20gamer/400"
-    }
-]
-```
-
----------------------------
-<br>
-
-## Get all products funcionalidade 2
-Caso seja enviada uma query params (name) deve ser retornado o resultado da busca de produtos que contenham o _"name"_ informado em seu nome.
-```typescript
-// Request
-// query params = name
-// GET /products?name=gamer
-
-// Response
-// status 200 OK
-[
-    {
-        id: "prod001",
-        name: "Mouse gamer",
-        price: 250,
-        description: "Melhor mouse do mercado!",
-        imageUrl: "https://picsum.photos/seed/Mouse%20gamer/400"
-    },
-    {
-        id: "prod003",
-        name: "Teclado gamer",
-        price: 200,
-        description: "Teclado mecânico com numpad",
-        imageUrl: "https://picsum.photos/seed/Teclado%20gamer/400"
-    }
-]
-```
-
----------------------------
-<br>
+## Get all products
+Retorna todos os produtos cadastrados, mas se for enviado um query params (name)
+retorna os produtos que contenham o _"name"_ informado no seu nome.
+#### Exemplo
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/4211fe4d-07fc-4b28-9cbc-c970644fd398)
+|![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/1001434b-3454-4343-9212-659d3e1d358e)
 
 ## Edit product by id
 Edita um produto existente.
-```typescript
-// Request
-// path params = :id
-
-// PUT /products/prod003
-// body JSON
-{
-    "id": "prod0033",
-    "name": "Teclado gamer RGB",
-    "price": 300,
-    "description": "Teclado mecânico com RGB e numpad",
-    "imageUrl": "https://picsum.photos/seed/Teclado%20gamer%20RGB/400"
-}
-
-// Response
-// status 200 OK
-{
-    message: "Produto atualizado com sucesso"
-}
-```
-
----------------------------
-<br>
+#### Validações
+- [X] tipos de dados diferentes dos esperados.
+- [X] valor do produto válido "caso seja informado deve ser maior que zero". 
+- [X] verificação do 'id' informadado, se o mesmo está cadastrado.
+- [X] verificação do novo ID "caso informado" evitando gerar erro no cadastramento.<br>
+#### Exemplo
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/3ac601b1-da4d-44c8-9138-0895ba970e8d)
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/970a8d8b-185b-4a61-8254-bb1378cc1fef)
 
 ## Create purchase
-Cadastra um novo pedido. Como dica, o exercício 1 da aula de [Relações em SQL II](https://github.com/labenuexercicios/relacoes-sql-II-exercicios) é uma boa referência.
-```typescript
-// Request
-// POST /purchases
-// body JSON
-{
-    "id": "pur001",
-    "buyer": "u001",
-    "products": [
-        {
-            "id": "prod001",
-            "quantity": 2
-        },
-        {
-            "id": "prod002",
-            "quantity": 1
-        }
-    ]
-}
-
-// Response
-// status 201 CREATED
-{
-    message: "Pedido realizado com sucesso"
-}
-```
-
-
----------------------------
-<br>
+Cadastra um novo pedido.
+- [X] ausência de informações
+- [X] tipos de dados diferentes dos esperados
+- [X] duplicidade de compras pelo ID
+- [X] cliente válido ( cadastrado )
+- [X] produtos válido ( cadastrado )
+#### Exemplo
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/8fef9a9e-6ca4-4a09-b638-e236a3038f9a)
+|![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/c7aef965-6483-4c47-b8c6-72c2b9091611)
 
 ## Delete purchase by id
 Deleta um pedido existente.
-```typescript
-// Request
-// path params = :id
-// DELETE /purchases/pur002
-
-// Response
-// status 200 OK
-{
-    message: "Pedido cancelado com sucesso"
-}
-```
-
-
----------------------------
-<br>
+#### Exemplo
+![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/f821649d-97ee-4d12-879c-60fe769a7bcf)
 
 ## Get purchase by id
 Retorna os dados de uma compra, incluindo a lista de produtos da mesma.
-```typescript
-// Request
-// path params = :id
-// GET /purchases/pur001
-
-// Response
-// status 200 OK
-{
-    purchaseId: "pur001",
-    buyerId: "u001",
-    buyerName: "Fulano",
-    buyerEmail: "fulano@email.com",
-    totalPrice: 1400,
-    createdAt: "2023-01-15 16:24:54",
-    products: [
-        {
-            id: "prod001",
-            name: "Mouse gamer",
-            price: 250,
-            description: "Melhor mouse do mercado!",
-            imageUrl: "https://picsum.photos/seed/Mouse%20gamer/400",
-            quantity: 2
-        },
-        {
-            id: "prod002",
-            name: "Monitor",
-            price: 900,
-            description: "Monitor LED Full HD 24 polegadas",
-            imageUrl: "https://picsum.photos/seed/Monitor/400",
-            quantity: 1
-        }
-    ]
-}
-```
+#### Exemplo
 
 
----------------------------
-<br>
+
+## Tecnologias 
+colocar as imagens
+
+- NodeJS
+- Typescript
+- Express
+- SQL
+- SQLite
+- Knex
+- Postman
+
 
 
