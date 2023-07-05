@@ -1,55 +1,62 @@
 import { Request, Response } from "express";
-import { products } from "../../database/database";
-import { findId, handlerError } from "../../roles/rooles";
 import { Product } from "../../interfaces";
+import { db } from '../../database/knex'
+import { handlerError } from "../handlerError";
 
-export function createProduct(req: Request, res: Response) {
+export async function createProduct(req: Request, res: Response) {
   try {
     
     const { id, name, price, description, imageUrl } = req.body
 
     if (id == undefined || typeof id != "string" || id.length < 1) {
       res.statusCode = 400
-      throw new Error("o id precisa ser informado, ser do tipo string e ter no mínimo 1 caractere.")
+      throw new Error(`'id' is requerid, need to be the string type 
+      and must heave at least one character`)
     }
     
     if (name == undefined || typeof name != "string" || name.length < 10) {
       res.statusCode = 400
-      throw new Error("o nome do produto precisa ser informado, ser tipo string e ter no mínimo 1 caractere.")
+      throw new Error(`'name' is requirid, need to be the string type
+      and must heave at least one character`)
     }
     
     if (price == undefined || typeof price != "number" || price <= 0) {
       res.statusCode = 400
-      throw new Error("o preço do produto precisa ser informado e ser maior que zero.")
+      throw new Error(`'price' is requerid and must be greater than zero`)
     }
     
     if (description == undefined || typeof description != "string" || description.length < 5) {
       res.statusCode = 400
-      throw new Error("a descrição do produto precisa ser informada, ser do tipo string e ter no mínimo 1 caractere.")
+      throw new Error(`'description' is requerid, need to be the string type
+      and must heave at least one character` )
     }
     
     if (imageUrl == undefined || typeof imageUrl != "string") {
       res.statusCode = 400
-      throw new Error("a imagem do produto é requerida.")
+      throw new Error(`'image' is requerid`)
     }
 
-    if (findId(products, id)) {
+    // verifica se ja foi cadastrado esse id
+    const [result] = await db("products").select().where({id: id})
+
+    if(result){
       res.statusCode = 400
-      throw new Error("esse id já foi cadastrado.")
+      throw new Error(`'id' already registered`)
     }
 
     const newProduct: Product =
     {
-      id: id,
-      name: name,
-      price: price,
-      description: description,
-      imageUrl: imageUrl
+      "id": id,
+      "name": name,
+      "price": price,
+      "description": description,
+      "image_url": imageUrl
     }
-    products.push(newProduct)
-    res.status(201).send("Produto cadastrado com sucesso.")
 
-  } catch (error) {
+    await db("products").insert(newProduct)
+    res.status(201).send({message: "Produto cadastrado com sucesso"})
+
+  } catch (error:unknown) {
     handlerError(res,error)
   }
 }

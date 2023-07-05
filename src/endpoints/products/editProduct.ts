@@ -1,83 +1,96 @@
 import { Request, Response } from "express";
-import { products } from "../../database/database";
-import { handlerError } from "../../roles/rooles";
-import { findId } from "../../roles/rooles";
+import { handlerError } from "../handlerError";
+import { db } from "../../database/knex"
+import { UpdatePro } from "../../interfaces";
 
-export function editProduct(req: Request, res: Response){
+export async function editProduct(req: Request, res: Response) {
   try {
 
-    const idProduct = req.params.id
+    const idPro = req.params.id
 
     const {
       id: newId,
       name: newName,
       price: newPrice,
       description: newDescription,
-      imageUrl: newImageUrl
+      imageUrl: newImage_url
     } = req.body
-    
-    // verifica se o produto existe.
-    if (!findId(products,idProduct)){
-      res.statusCode = 404
-      throw new Error("id não cadastrado.")
-    }
+
+    const updatePro:UpdatePro = {} 
+
 
     // verifica se o novo id é válido ( string ).
     if (newId != undefined) {
       if (typeof newId != "string") {
-        res.statusCode = 400
-        throw new Error("O novo id precisa ser tipo string.")
+        res.statusCode = 422
+        throw new Error("'id' need to be the string type")
       }
+      updatePro.id = newId;
     }
-    // verifica se o novo id ainda não foi cadastrado.
-    if (findId(products, newId)) {
+
+    if (newName !== undefined) {
+      if (typeof newName !== "string" || newName.length < 2) {
+        res.statusCode = 422
+        throw new Error(`'name' need to be the string type and
+         heave at least one character`)
+      }
+      updatePro.name = newName
+    }
+
+    if (newPrice !== undefined) {
+      if (typeof newPrice !== "number" || newPrice <= 0) {
+        res.statusCode = 422
+        throw new Error(`'price' need to be the numeric type and 
+         must to be greater than zero`)
+      }
+      updatePro.price = newPrice
+    }
+
+    if (newDescription !== undefined) {
+      if (typeof newDescription !== "string" || newDescription.length < 2) {
+        res.statusCode = 422
+        throw new Error(`'description' need to be the string type and 
+         heave at least one character`)
+      }
+      updatePro.description = newDescription
+    }
+
+    if (newImage_url !== undefined) {
+      if (typeof newImage_url !== "string" || newImage_url.length < 10) {
+        res.statusCode = 422
+        throw new Error(`'image' need to be the string type`)
+      }
+      updatePro.image_url = newImage_url
+    }
+
+    const checkUpdatePro = Object.values(updatePro)
+    if(checkUpdatePro.length<1){
       res.statusCode = 400
-      throw new Error("não é possivel atualizar, o id informado já está cadastrado.")
+      throw new Error("'body' is requerid")
     }
 
-    
-    if(newName !== undefined){
-      if(typeof newName !== "string" || newName.length<2){
-        res.statusCode=400
-        throw new Error("o 'name' precisar ser tipo string e ter no mínimo uma letra.")
+    // // verifica se o produto existe.
+    let [result] = await db("products").where({ id: idPro })
+    if (!result) {
+      res.statusCode = 404
+      throw new Error("'id' not found")
+    }
+
+    // verifica se o novo ID já foi cadastrado
+    if (newId){
+      [result] = await db("products").where({ id: newId })
+      if (result) {
+        res.statusCode = 404
+        throw new Error("'id' already exists")
       }
-    }
+    } 
 
-    if(newPrice !== undefined){
-      if(typeof newPrice !== "number" || newPrice<=0){
-        res.statusCode=400
-        throw new Error("o 'price' precisar ser tipo numérico e ser maior que zero.")
-      }
-    }
-    
-    if(newDescription !== undefined){
-      if(typeof newDescription !== "string" || newDescription.length<2){
-        res.statusCode=400
-        throw new Error("a 'description' precisar ser tipo string e ter no mínimo uma letra.")
-      }
-    }
+    await db("products").update(updatePro).where({id:idPro})
 
-    if(newImageUrl !== undefined){
-      if(typeof newImageUrl !== "string" || newImageUrl.length<10){
-        res.statusCode=400
-        throw new Error("a 'imageUrl' precisar ser tipo string e ter no mínimo 10 letras.")
-      }
-    }
 
-    // search product 
-    const produtctUpdate = products.find( product => product.id === idProduct)
+    res.status(200).send("Produto atualizado com sucesso")
 
-    // update data
-    produtctUpdate.id = newId || produtctUpdate.id
-    produtctUpdate.name = newName || produtctUpdate.name
-    produtctUpdate.description = newDescription || produtctUpdate.description
-    produtctUpdate.price = newPrice || produtctUpdate.price
-    produtctUpdate.imageUrl = newImageUrl || produtctUpdate.imageUrl
-
-    res.status(200).send("Produto atualizado com sucesso.")
-
-  } catch (error) {
-    handlerError(res,error)
+  } catch (error:unknown) {
+    handlerError(res, error)
   }
-
 }
