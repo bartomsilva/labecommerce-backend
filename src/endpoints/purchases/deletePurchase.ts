@@ -4,11 +4,11 @@ import { db } from '../../database/knex'
 
 export async function deletePurchase(req:Request,res:Response){
   
-  const { id:idDelete } = req.params
-
+  const { id:idDelete} = req.params
+  
   try {
     // teste se id  (não foi passado = undefined)
-    if(idDelete === undefined || idDelete === ":id" ) {
+    if(idDelete === ":id" ) {
       throw new Error("'id' is requerid")      
     }
     // 

@@ -38,8 +38,7 @@ export async function createPurchase(req: Request, res: Response) {
     let invalidQuantity: boolean = false
     let productNotFound: boolean = false
 
-    for (let i = 0; i < products.length; i++) {
-      const product = products[i]
+    for (let product of products) {
       if (product.id == undefined || typeof product.id != "string") {
         invalidProductType = true
         break
@@ -50,12 +49,12 @@ export async function createPurchase(req: Request, res: Response) {
         }
       }
     }
-    // produto com ID invalido
+    // produto com ID inválido
     if (invalidProductType) {
       res.statusCode = 400
       throw new Error("'id product' is requerid and need to be the string type")
     }
-    // produto com quanditade invalida
+    // produto com quanditade inválida
     if (invalidQuantity) {
       res.statusCode = 400
       throw new Error(`'quantity' is requerid, need to be te number type 
@@ -77,10 +76,8 @@ export async function createPurchase(req: Request, res: Response) {
       throw new Error(`'purchase id' already registered`)
     }
 
-    // Verifica se os produtos estão cadastrados
-    for (let i = 0; i < products.length; i++) {
-      const product = products[i].id
-      const [result] = await db("products").where({ id: product })
+    for (let product of products) {
+      const [result] = await db("products").where({ id: product.id })
       if (!result) {
         productNotFound = true
         break
@@ -103,9 +100,8 @@ export async function createPurchase(req: Request, res: Response) {
 
     // criar o objeto do produtos
     const newPurchaseProducts: PurchaseProductsDB[] = []
-
-    for (let i = 0; i < products.length; i++) {
-      const product = products[i]
+    
+    for (let product  of products) {
       const newProduct: PurchaseProductsDB = {
         product_id: product.id,
         purchase_id: id,

@@ -15,9 +15,10 @@ import { getAllProducts } from "./endpoints/products/getAllProducts";
 import { editProduct } from "./endpoints/products/editProduct";
 import { deleteProduct } from "./endpoints/products/deleteProduct";
 
-//========= em construção
-import { createPurchase } from "./endpoints/purchses/createPurchases";
-import { deletePurchase } from "./endpoints/purchses/deletePurchase";
+//========================================
+import { createPurchase } from "./endpoints/purchases/createPurchase";
+import { deletePurchase } from "./endpoints/purchases/deletePurchase";
+import { getPurchaseById } from "./endpoints/purchases/getPurchaseById";
 //=======================
 
 
@@ -58,8 +59,11 @@ server.get("/products", getAllProducts)
 server.put('/products/:id',editProduct)
 
 
-// ### PURCHASES
+// create purchase
 server.post("/purchases", createPurchase)
 
+// delete purchase
 server.delete("/purchases/:id",deletePurchase)
 
+// get purchase by id
+server.get("/purchases/:id",getPurchaseById)
