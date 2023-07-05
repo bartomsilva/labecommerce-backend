@@ -46,3 +46,19 @@ export interface PurchaseProductsDB {
   quantity: number,
 }
   
+export interface Purchase {
+  purchaseId: string
+  buyerId: string
+  buyerName: string
+  buyerEmail: string
+  totalPrice: number
+  createdAt:string
+  products:Array<{
+    id: string
+    name: string
+    price: number
+    description: string
+    imageUrl: string
+    quantity: number
+  }>
+}
