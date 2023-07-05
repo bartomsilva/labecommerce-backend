@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { db } from '../../database/knex'
 import { handlerError } from "../handlerError";
-import { unknown } from "zod";
 
 export async function getAllUsers(req:Request, res:Response){
 
