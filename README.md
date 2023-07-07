@@ -13,7 +13,7 @@ Neste projeto, apliquei toda a base de criação de uma API vinculada a um banco
 - <a href="#comorodar">Como rodar este projeto</a>
 - <a href="#tecnologias">Tecnologias Utilizadas</a>
 - <a href="#author">Pessoas autoras</a>
-- <a href="#next">Próximos Passos</a>
+- <a href="#next">Considerações sobre este projeto</a>
 <hr/>
 
 <span id="layout"></span>
@@ -196,10 +196,12 @@ linkedin: https://www.linkedin.com/in/bart-silva-br/
 <span id='next'></span>
 <a href="#indice">início</a>
 
-## Próximos passos
-- Refazer todo projeto utilizando POO. 
-
-
-
+## Considerações sobre este projeto
+Bom, sobre este projeto, gostaria de pontuar algumas coisas:
+Com relação aos pedidos, deveria ser incluído na tabela de itens do pedido ( purchases_products ) a coluna referente
+ao valor do produto ( price ), uma vez que sem ter esse volor registrado, em uma consulta posterior a referência do valor é 
+perdida, pelo fato de que os preços podem aumentar ou diminuir, outra questão é a não implementação de uma autorização 
+tanto na leitura como na escrita de dados no banco de dados, estes dois pontos assim como algumas melhorias seram adicionadas
+após a correção deste projeto.
 
 
