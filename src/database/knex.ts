@@ -14,3 +14,14 @@ export const db = knex({
         } // configurando para o knex forçar o check das constrainst FK
     }
 })
+
+export const pg = require('knex')({
+  client: 'pg',
+  connection: {
+    host : '127.0.0.1',
+    user : 'barto',
+    password : '147258369',
+    database : 'postgres'
+},
+  searchPath: ['knex', 'public'],
+});

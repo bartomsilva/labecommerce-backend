@@ -1,8 +1,6 @@
-( readme em construção )
-
 # labecommerce
-Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de uma API vinculada a um banco de dados real.<br><br>
-<br>
+Olá, venho com muita alegria, apresentar meu primeiro projeto acadêmico back-end, que faz parte da lista de atividades do curso desenvolverdor web full stack da Labenu.
+Neste projeto, apliquei toda a base de criação de uma API vinculada a um banco de dados real.<br><br>
 <span id='indice'></span>
 ## Índice
 
@@ -13,7 +11,7 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 - <a href="#comorodar">Como rodar este projeto</a>
 - <a href="#tecnologias">Tecnologias Utilizadas</a>
 - <a href="#author">Pessoas autoras</a>
-- <a href="#next">Próximos Passos</a>
+- <a href="#next">Considerações sobre este projeto</a>
 <hr/>
 
 <span id="layout"></span>
@@ -25,10 +23,11 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 ### Tabelas: 
 ![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/acefbe29-1413-480e-9480-20b23d72f4aa)
 ### Endpoints implementados :
-- [X]  Get all users 
 - [X]  Create user
+- [X]  Get all users 
 - [X]  Create product
-- [X]  Get all products funcionalidades 1 e 2
+- [X]  Get all products 
+- [X]  Get products by name
 - [X]  Edit product by id
 - [X]  Create purchase
 - [X]  Delete purchase by id
@@ -44,11 +43,9 @@ Olá, apresento meu projeto back-end, onde apliquei toda a base de criação de 
 - /products
 ### Requisições de Compras
 - /purchases
-
 <hr/>
-<span id="link"></span>
-<a href="#indice">início</a>
 
+<span id="link"></span>
 ### Documentação no Postman:  
 ---- link
 
@@ -107,6 +104,7 @@ Cadastra um novo pedido.
 - [X] duplicidade de compras pelo ID
 - [X] cliente válido ( cadastrado )
 - [X] produtos válido ( cadastrado )
+- [X] quantidade válida ( maior que zero )
 #### Exemplo
 ![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/8fef9a9e-6ca4-4a09-b638-e236a3038f9a)
 |![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/c7aef965-6483-4c47-b8c6-72c2b9091611)
@@ -152,9 +150,9 @@ ou
 yarn install
 
 # Executando o Projeto
-npm run dev
+npm run start
 ou 
-yarn dev
+yarn start
 
 ```
 
@@ -163,8 +161,9 @@ yarn dev
 <a href="#indice">início</a>
 
 ### Endpoins adicionais
-```
-```
+- [X] Edit user by id (alterando o id também é alterado nos pedidos
+- [X] Get user by name 
+- [X] Delete user by id ( remove o usuário o os pedidos relacionados a ele) 
 <hr/>
 <span id="tecnologias"></span>
 <a href="#indice">início</a>
@@ -172,14 +171,14 @@ yarn dev
 ## 💻 Tecnologias
 <div align="center">
 
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/2ecbb441-e22d-4be2-b67b-5fff6f606583" higth="40px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/365c791b-268b-45f5-9268-9b1bad354a57" higth="40px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/0e5d0c6e-bae0-43c9-b641-2d375361c29a" higth="40px"/><br>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/a6ce0cb3-39d8-4d48-af03-9b1ff68a2809" higth="40px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/932a21bf-bd42-4b0c-87f8-8941d86f56f7" higth="40px"/><br>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/bb5f2801-cf54-40da-ab18-1878173a177b" higth="40px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/1d7fa95f-2f7c-4701-945a-8ad0412c236d" higth="40px"/>
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/cf9e6e98-36f5-4447-be7a-c6d00426b477" higth="40px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/2ecbb441-e22d-4be2-b67b-5fff6f606583" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/365c791b-268b-45f5-9268-9b1bad354a57" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/0e5d0c6e-bae0-43c9-b641-2d375361c29a" higth="35px"/><br>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/a6ce0cb3-39d8-4d48-af03-9b1ff68a2809" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/932a21bf-bd42-4b0c-87f8-8941d86f56f7" higth="35px"/><br>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/bb5f2801-cf54-40da-ab18-1878173a177b" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/1d7fa95f-2f7c-4701-945a-8ad0412c236d" higth="35px"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/cf9e6e98-36f5-4447-be7a-c6d00426b477" higth="35px"/>
 </div>
 <hr/>
 <span id="author"></span>
@@ -195,10 +194,12 @@ linkedin: https://www.linkedin.com/in/bart-silva-br/
 <span id='next'></span>
 <a href="#indice">início</a>
 
-## Próximos passos
-- Refazer todos projetos utilizando POO. 
-
-
-
+## Considerações sobre este projeto
+Bom, sobre este projeto, gostaria de pontuar algumas coisas:
+Com relação aos pedidos, deveria ser incluído na tabela de itens do pedido ( purchases_products ) a coluna referente
+ao valor do produto ( price ), uma vez que sem ter esse valor registrado, em uma consulta posterior a referência do valor é 
+perdida, pelo fato de que os preços podem aumentar ou diminuir, outra questão é a não implementação de uma autorização 
+tanto na leitura como na escrita de dados no banco de dados, estes dois pontos assim como algumas melhorias seram adicionadas
+após a correção deste projeto.
 
 

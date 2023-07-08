@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { User } from "../../interfaces";
 import { db } from '../../database/knex'
 import { handlerError } from "../handlerError";
+// import { pg } from "../../database/knex";
 
 export async function createUser(req: Request, res: Response) {
 
@@ -56,6 +57,7 @@ export async function createUser(req: Request, res: Response) {
     }
 
     const [ result ] = await db("users").where({ id: id }).orWhere({email: email})
+    // const [ result ] = await pg("users").where({ id: id }).orWhere({email: email})
     if (result){
         res.statusCode = 400
         throw new Error("'id or email' already registered.")
@@ -70,7 +72,8 @@ export async function createUser(req: Request, res: Response) {
       "created_at": new Date().toISOString().slice(0, 19).replace('T', ' ')
     }
 
-    // salvanso do banco de dados
+    // salvando do banco de dados
+    // await pg("users").insert(newUser);
     await db("users").insert(newUser);
 
     res.status(201).send({message: "Cadastro realizado com sucesso"})
