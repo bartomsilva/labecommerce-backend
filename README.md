@@ -1,5 +1,3 @@
-( readme em construção )
-
 # labecommerce
 Olá, venho com muita alegria, apresentar meu primeiro projeto acadêmico back-end, que faz parte da lista de atividades do curso desenvolverdor web full stack da Labenu.
 Neste projeto, apliquei toda a base de criação de uma API vinculada a um banco de dados real.<br><br>
