@@ -204,4 +204,4 @@ perdida, pelo fato de que os preços podem aumentar ou diminuir, outra questão 
 tanto para leitura como para escrita de dados no banco de dados, estes dois pontos, assim como algumas melhorias seram adicionadas
 após a correção deste projeto.
 
-
+![Badge](https://img.shields.io/badge/Blog-Rocketseat-%237159c1?style=for-the-badge&logo=ghost)
