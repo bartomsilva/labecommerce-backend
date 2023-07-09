@@ -126,7 +126,7 @@ Retorna os dados de uma compra, incluindo a lista de produtos da mesma.
 ![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/fc0e5e03-97da-442d-bfec-f5b3b0edee50)
 <hr/>
 <span id='comorodar'></span>
-<a href="#indice"><img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/b515cfbd-cd06-440e-9d28-cfe208c39a63" width="25px"/></a>
+<a href="#indice">:arrow_backward:Indíce</a>
 
 ## 📄 Como rodar este projeto:
 
