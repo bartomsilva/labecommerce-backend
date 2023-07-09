@@ -18,8 +18,8 @@ A Labecommerce-backend é uma API que simula o fluxo de trabalho de um ecommerce
 <hr/>
 
 <span id="layout"></span>
-<a href="#indice"><img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/b515cfbd-cd06-440e-9d28-cfe208c39a63" width="25px"/></a>
-
+<a href="#indice">:arrow_backward:Indíce</a>
+	
 ## Layout: 
 #### a) Estrutura das pastas
 <img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/1e595cc6-5811-4f44-90ed-f9a41ce3971a" height="40%"/>
@@ -45,7 +45,7 @@ A Labecommerce-backend é uma API que simula o fluxo de trabalho de um ecommerce
 - [X] Delete user by id (remove o usuário o os pedidos relacionados a ele) 
 <hr/>
 <span id="requests"></span>
-<a href="#indice"><img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/b515cfbd-cd06-440e-9d28-cfe208c39a63" width="25px"/></a>
+<a href="#indice">:arrow_backward:Indíce</a>
 
 ## Requisições (Paths): 
 #### Requisições de Usuários
@@ -54,11 +54,10 @@ A Labecommerce-backend é uma API que simula o fluxo de trabalho de um ecommerce
 - /products
 #### Requisições de Compras
 - /purchases
-<hr/>
 
 <hr/>
 <span id="example"></span>
-<a href="#indice"><img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/b515cfbd-cd06-440e-9d28-cfe208c39a63" width="25px"/></a>
+<a href="#indice">:arrow_backward:Indíce</a>
 
 ## Exemplos de requisição:
 ### Get all users
@@ -164,7 +163,7 @@ yarn start
 ```
 <hr/>
 <span id="tecnologias"></span>
-<a href="#indice"><img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/b515cfbd-cd06-440e-9d28-cfe208c39a63" width="25px"/></a>
+<a href="#indice">:arrow_backward:Indíce</a>
 
 ## 💻 Tecnologias:
 <div align="center">
@@ -203,5 +202,5 @@ ao valor do produto ( price ), uma vez que sem esse valor registrado, em uma con
 perdida, pelo fato de que os preços podem aumentar ou diminuir, outra questão é a não implementação de uma autorização 
 tanto para leitura como para escrita de dados no banco de dados, estes dois pontos, assim como algumas melhorias seram adicionadas
 após a correção deste projeto.
+<hr/>
 
-![Badge](https://img.shields.io/badge/Blog-Rocketseat-%237159c1?style=for-the-badge&logo=ghost)
