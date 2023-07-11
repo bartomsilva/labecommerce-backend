@@ -36,13 +36,7 @@ A Labecommerce-backend é uma API que simula o fluxo de trabalho de um ecommerce
 - [X]  Edit product by id
 - [X]  Create purchase
 - [X]  Delete purchase by id
-- [X]  Get purchase by id
-      
-<p><b>Endpoints extras</b></p>
-
-- [X] Get user by name 
-- [X] Edit user by id (alterando o id também é alterado nos pedidos também
-- [X] Delete user by id (remove o usuário o os pedidos relacionados a ele) 
+- [X]  Get purchase by id      
 <hr/>
 <span id="requests"></span>
 <a href="#indice">:arrow_backward:Indíce</a>
@@ -73,7 +67,7 @@ Cadastra uma nova pessoa.<br>
 - [X] verificação de ID já castrado.
 - [X] verificação de email já castrado.<br>
 #### Exemplo
-![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/c59d4f6b-52d1-4bad-b63d-10a6fbc66590)
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/54d7735b-42d7-41d9-baa8-c02d3ef346ba)
 
 ### Create product
 Cadastra um novo produto.<br>
@@ -83,7 +77,7 @@ Cadastra um novo produto.<br>
 - [X] valor do produto válido (deve ser maior que zero). 
 - [X] verificação de ID já castrado.<br>
 #### Exemplo
-![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/839d0e3e-202e-452e-b653-15ce6cdf9ef3)
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/e63a3096-0418-4584-9a39-e5f562ee247b)
 
 ### Get all products
 Retorna todos os produtos cadastrados e se for enviado um "query params name"
@@ -100,8 +94,7 @@ Edita um produto existente.
 - [X] verificação do 'id' informadado, se o mesmo está cadastrado.
 - [X] verificação do novo ID "caso informado" se o mesmo já foi cadastrado.<br>
 #### Exemplo
-![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/3ac601b1-da4d-44c8-9138-0895ba970e8d)
-![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/970a8d8b-185b-4a61-8254-bb1378cc1fef)
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/b75dcc4a-ea6c-456c-9f83-961a0bb60edd)
 
 ### Create purchase
 Cadastra um novo pedido.
@@ -112,18 +105,18 @@ Cadastra um novo pedido.
 - [X] produto válido ( cadastrado )
 - [X] quantidade válida ( maior que zero )
 #### Exemplo
-![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/8fef9a9e-6ca4-4a09-b638-e236a3038f9a)
-|![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/c7aef965-6483-4c47-b8c6-72c2b9091611)
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/bbc966f4-0813-4e37-a55d-3e257234c708)
 
 ### Delete purchase by id
 Deleta um pedido existente.
 #### Exemplo
-![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/f821649d-97ee-4d12-879c-60fe769a7bcf)
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/079b0b80-747c-42ce-a4d4-597d7913ce0c)
 
 ### Get purchase by id
 Retorna os dados de uma compra, incluindo a lista de produtos da mesma.
 #### Exemplo
-![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/fc0e5e03-97da-442d-bfec-f5b3b0edee50)
+![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/d56b5cdc-8100-4f05-b97c-ffabd68a02de)
+
 <hr/>
 <span id='comorodar'></span>
 <a href="#indice">:arrow_backward:Indíce</a>
