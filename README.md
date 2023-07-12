@@ -157,7 +157,7 @@ Deleta um pedido pelo id.
 ```
 
 ### GET purchases/:id
-Retorna os dados de uma compra.
+Retorna os dados de um pedido.
 ```json
 {
     "purchaseId": "8889",
