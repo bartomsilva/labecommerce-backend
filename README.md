@@ -243,8 +243,7 @@ yarn start
 <span id="link"></span>
 
 ## Documentação: 
-https://documenter.getpostman.com/view/26149268/2s946cfDxK
-
+https://documenter.getpostman.com/view/26149268/2s946cfEBZ
 
 <span id="author"></span>
 
