@@ -22,12 +22,9 @@ A Labecommerce-backend é uma API que simula o fluxo de trabalho de um ecommerce
 	
 ## Layout: 
 #### a) Estrutura das pastas
-<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/1e595cc6-5811-4f44-90ed-f9a41ce3971a" height="40%"/>
+<img src="https://github.com/bartomsilva/labecommerce-backend/assets/106079184/2904962f-f99d-4f1d-90dd-6223c5517ae7" height="40%"/>
 
-#### b) Tabelas: 
-<img src="https://github.com/bartomsilva/modeloReadme/assets/106079184/acefbe29-1413-480e-9480-20b23d72f4aa" width="100%px"/>
-
-#### c) Endpoints implementados
+#### b) Endpoints implementados
 - [X]  Create user
 - [X]  Get all users 
 - [X]  Create product
