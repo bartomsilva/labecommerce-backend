@@ -54,68 +54,138 @@ A Labecommerce-backend é uma API que simula o fluxo de trabalho de um ecommerce
 <a href="#indice">:arrow_backward:Indíce</a>
 
 ## Exemplos de requisição:
-### Get all users
-Retorna todas as pessoas cadastradas.<br>
-##### Exemplo
-![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/61a82c61-5c57-4a54-af58-a7b69cf679d7)
-
-### Create user
+### GET /users
+Retorna uma lista de todas pessoas cadastradas.<br>
+```json
+[
+    {
+        "id": "001",
+        "name": "Armarildo Gomes",
+        "email": "armarindo@gmail.com",
+        "password": "123456@aZ",
+        "createdAt": "2023-06-28 17:59:29"
+    },
+    {
+        "id": "002",
+        "name": "Zudilenildes Lima",
+        "email": "zudilenilde@gmail.com",
+        "password": "123456@cZ",
+        "createdAt": "2023-06-28 17:59:29"
+    }
+]
+```
+### POST /users
 Cadastra uma nova pessoa.<br>
-#### Validações
-- [X] ausência de informações.
-- [X] tipos de dados diferentes dos esperados.
-- [X] verificação de ID já cadastrado.
-- [X] verificação de email já cadastrado.<br>
-#### Exemplo
-![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/54d7735b-42d7-41d9-baa8-c02d3ef346ba)
+```json
+{
+    "message": "Cadastro realizado com sucesso"
+}
+```
 
-### Create product
+### POST /products
 Cadastra um novo produto.<br>
-#### Validações
-- [x] ausência de informações.
-- [X] tipos de dados diferentes dos esperados.
-- [X] valor do produto válido (deve ser maior que zero). 
-- [X] verificação de ID já cadastrado.<br>
-#### Exemplo
-![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/e63a3096-0418-4584-9a39-e5f562ee247b)
+```json
+{
+    "message": "Produto cadastrado com sucesso"
+}
+```
 
-### Get all products
+### GET /products  ou  GET /products?name=texto
 Retorna todos os produtos cadastrados e se for enviado um "query params name"
 retorna os produtos que contenham o _"name"_ informado no seu nome.
-#### Exemplo
-![image](https://github.com/bartomsilva/modeloReadme/assets/106079184/4211fe4d-07fc-4b28-9cbc-c970644fd398)
-![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/4f2a7e7b-9b72-4aff-a1b4-79d7706b5f57)
+* Retorno sem filtro
+```json
+[
+    {
+        "id": "001",
+        "name": "Teclado Gamer Flash",
+        "price": 102,
+        "description": "Melhor teclado Game",
+        "imageUrl": "https://picsum.photos/seed/Mouse%20gamer/400"
+    },
+    {
+        "id": "002",
+        "name": "Mouse Gamer Flash",
+        "price": 50,
+        "description": "Melhor mouse Game",
+        "imageUrl": "https://picsum.photos/seed/Mouse%20gamer/400"
+    },
+    {
+        "id": "003",
+        "name": "CPU Gamer Flash",
+        "price": 900,
+        "description": "CPU core I20",
+        "imageUrl": "https://picsum.photos/seed/Mouse%20gamer/400"
+    }
+]
+```
+* Retorno com filtro ( busca por 'mouse' )
+```json
+[
+  {
+        "id": "002",
+        "name": "Mouse Gamer Flash",
+        "price": 50,
+        "description": "Melhor mouse Game",
+        "imageUrl": "https://picsum.photos/seed/Mouse%20gamer/400"
+    }
+]
+```
 
-### Edit product by id
-Edita um produto existente.
-#### Validações
-- [X] tipos de dados diferentes dos esperados.
-- [X] valor do produto válido "caso seja informado deve ser maior que zero". 
-- [X] verificação do 'id' informadado, se o mesmo está cadastrado.
-- [X] verificação do novo ID "caso informado" se o mesmo já foi cadastrado.<br>
-#### Exemplo
-![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/b75dcc4a-ea6c-456c-9f83-961a0bb60edd)
+### PUT /products/:id
+Edita um produto pelo id
+```json
+{
+    "message": "Produto atualizado com sucesso"
+}
+```
 
-### Create purchase
+### POST /purchases
 Cadastra um novo pedido.
-- [X] ausência de informações
-- [X] tipos de dados diferentes dos esperados
-- [X] duplicidade de compras pelo ID
-- [X] cliente válido ( cadastrado )
-- [X] produto válido ( cadastrado )
-- [X] quantidade válida ( maior que zero )
-#### Exemplo
-![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/bbc966f4-0813-4e37-a55d-3e257234c708)
+```json
+{
+    "message": "Pedido realizado com sucesso"
+}
+```
 
-### Delete purchase by id
-Deleta um pedido existente.
-#### Exemplo
-![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/079b0b80-747c-42ce-a4d4-597d7913ce0c)
+### DELETE /purchases/:id
+Deleta um pedido pelo id.
+```json
+{
+    "message": "Pedido cancelado com sucesso"
+}
+```
 
-### Get purchase by id
-Retorna os dados de uma compra, incluindo a lista de produtos da mesma.
-#### Exemplo
-![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/d56b5cdc-8100-4f05-b97c-ffabd68a02de)
+### GET purchases/:id
+Retorna os dados de uma compra.
+```json
+{
+    "purchaseId": "8889",
+    "buyerId": "001",
+    "buyerName": "Armarildo Gomes",
+    "buyerEmail": "armarindo@gmail.com",
+    "totalPrice": 500.98,
+    "createdAt": "2023-07-12 20:56:22",
+    "products": [
+        {
+            "id": "003",
+            "name": "CPU Gamer Flash",
+            "price": 900,
+            "description": "CPU core I20",
+            "imageUrl": "https://picsum.photos/seed/Mouse%20gamer/400",
+            "quantity": 2
+        },
+        {
+            "id": "006",
+            "name": "Teclado Gamer Head Shot",
+            "price": 250,
+            "description": "Teclado mecânico com numpad top",
+            "imageUrl": "https://picsum.photos/seed/Teclado%20gamer/400",
+            "quantity": 1
+        }
+    ]
+}
+```
 
 <hr/>
 <span id='comorodar'></span>
