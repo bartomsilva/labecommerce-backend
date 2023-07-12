@@ -64,8 +64,8 @@ Cadastra uma nova pessoa.<br>
 #### Validações
 - [X] ausência de informações.
 - [X] tipos de dados diferentes dos esperados.
-- [X] verificação de ID já castrado.
-- [X] verificação de email já castrado.<br>
+- [X] verificação de ID já cadastrado.
+- [X] verificação de email já cadastrado.<br>
 #### Exemplo
 ![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/54d7735b-42d7-41d9-baa8-c02d3ef346ba)
 
@@ -75,7 +75,7 @@ Cadastra um novo produto.<br>
 - [x] ausência de informações.
 - [X] tipos de dados diferentes dos esperados.
 - [X] valor do produto válido (deve ser maior que zero). 
-- [X] verificação de ID já castrado.<br>
+- [X] verificação de ID já cadastrado.<br>
 #### Exemplo
 ![image](https://github.com/bartomsilva/labecommerce-backend/assets/106079184/e63a3096-0418-4584-9a39-e5f562ee247b)
 
