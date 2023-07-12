@@ -11,6 +11,7 @@ import { editProduct } from "./endpoints/products/editProduct";
 import { createPurchase } from "./endpoints/purchases/createPurchase";
 import { deletePurchase } from "./endpoints/purchases/deletePurchase";
 import { getPurchaseById } from "./endpoints/purchases/getPurchaseById";
+import { deleteUser } from "./endpoints/users/deleteUser";
 //=======================
 
 const server = express()
@@ -30,6 +31,9 @@ server.get('/users', getAllUsers)
 // Create user
 server.post("/users", createUser)
 
+// Delete user by id
+server.delete("/users/:id", deleteUser)
+
 // Create product
 server.post("/products", createProduct)
 
@@ -47,4 +51,4 @@ server.delete("/purchases/:id",deletePurchase)
 
 // Get purchase by id
 server.get("/purchases/:id",getPurchaseById)
-
+        
