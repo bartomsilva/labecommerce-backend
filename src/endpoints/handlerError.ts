@@ -8,6 +8,6 @@ export const handlerError =(res:Response, error:unknown)=>{
   if (error instanceof Error) {
     res.send(error.message)
   } else {
-    res.send("Erro inesperado.")
+    res.send("unexpected error.")
   }
 }
