@@ -6,7 +6,7 @@ export const handlerError =(res:Response, error:unknown)=>{
     res.status(500)
   }
   if (error instanceof Error) {
-    res.send(error.message)
+    res.send({ message: error.message.toString()})
   } else {
     res.send("unexpected error.")
   }
