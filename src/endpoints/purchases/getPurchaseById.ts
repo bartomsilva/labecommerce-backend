@@ -11,7 +11,7 @@ const { id: idPurchase } = req.params
 
     // testa se id  (não foi passado = undefined)
     if (idPurchase == undefined || idPurchase === ":id") {
-      throw new Error("'id' is requerid")
+      throw new Error("(id) é obrigatório")
     }
 
     // primeira parte ( dados do pedido)
@@ -27,7 +27,7 @@ const { id: idPurchase } = req.params
     // se não encontrar nada não estressa o banco de dados procurando itens
     if (resultPurchase === undefined) {
       res.status(400)
-      throw new Error(`'id' not found`)
+      throw new Error("(id) não encontrado")
 
     }
 
